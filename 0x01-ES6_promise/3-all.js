@@ -1,8 +1,10 @@
-import { uploadPhoto, createUser } from '../alx-frontend-javascript/utils.js'
+import { uploadPhoto, createUser } from './utils';
 
 export default function handleProfileSignup() {
-  return Promise.all([uploadPhoto(), createUser()])
-    .then((values) => {
-      console.log(`${values[0].body} ${values[1].firstName} ${values[1].lastName}`);
-    }).catch(() => console.log('Signup system offline'));
+  const photo = uploadPhoto();
+  const user = createUser();
+  return Promise.all([photo, user]).then(
+    (data) => console.log(`${data[0].body} ${data[1].firstName} ${data[1].lastName}`),
+    () => console.log('Signup system offline'),
+  );
 }
