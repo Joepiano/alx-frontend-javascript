@@ -1,23 +1,22 @@
 import Building from './5-building';
 
 export default class SkyHighBuilding extends Building {
-  /* eslint-disable */
-  constructor(sqft, floors) {
-    super(sqft);
+  constructor(sqdt, floors) {
+    super(sqdt);
     this._floors = floors;
   }
 
-  // getter 
-  get floors() {
-    return this._floors;
-  }
-
-  // setter 
-  set floors(Floors) {
-    this._floors = Floors;
-  }
-
   evacuationWarningMessage() {
+    // Return a string with the message to evacuate the building (number of floors)
     return `Evacuate slowly the ${this.floors} floors`;
+  }
+
+  // Getters for the attributes of the class
+  get sqft() { // Getter for sqft attribute (number)
+    return this._sqft;
+  }
+
+  get floors() { // Getter for floors attribute (number)
+    return this._floors;
   }
 }
